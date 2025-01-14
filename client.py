@@ -28,3 +28,11 @@ if __name__ == "__main__":
     print(calculate(5, 3, "subtract"))
     print(calculate(5, 3, "multiply"))
     print(calculate(5, 3, "divide"))
+    
+    respond = requests.put(f"{base_url}/user/1", json={"name": "John Doe", "age": 30})
+    
+    print(respond.json()["message"])
+    
+    respond = requests.get(f"{base_url}/user/1")
+    
+    print(respond.json()["name"], respond.json()["age"])
